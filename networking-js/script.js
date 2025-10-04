@@ -150,7 +150,7 @@ function addConnection(contact) {
 }
 
 
-//sjow conection in my profile
+//show conection in my profile
 function showConnections() {
   const connections = JSON.parse(localStorage.getItem("connections")) || [];
   myConnections.innerHTML = "";
