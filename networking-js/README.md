@@ -2,7 +2,7 @@
 
 My Networking is a basic application inspired on educational/professional platforms. This desktop application allows to understand more about local storage usage, dom manipulation, DOM structures with CSS, and learn more about functions and built-in functions with JS documentation. JavaScript allows me to make dynamic web pages with dynamic information that can be adapt from mock data to a real endpoint. Understanding how to work with data locally or using JSON to display data from local is a key part of this project. The purpose of this application is to understand the basics of dynamic web development in a real scenario, creating user interfaces, managing user data, and interactive features such a posting, deleting a post, and updating your profile, connecting with others. 
 
-[Software Demo Video](https://www.youtube.com/watch?v=B9KHwN_LhKk)
+[Software Demo Video](https://www.youtube.com/watch?v=PJnUCqmgmck)
 
 # Development Environment
 
