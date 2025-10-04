@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyNetworking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>MyNetworking</h1>
+    <nav>
+      <button class="tab-btn active" data-tab="profile">Profile</button>
+      <button class="tab-btn" data-tab="network">My Network</button>
+      <button class="tab-btn" data-tab="posts">My Posts</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- profile section -->
+    <section id="profile" class="tab active">
+      <h2>Profile</h2>
+
+    <div id="profileDisplay" class="profile-card hidden">
+    <div class="profile-info">
+        <h3 id="displayName"></h3>
+        <p id="displayBio" class="bio"></p>
+        <p><strong>Career:</strong> <span id="displayCareer"></span></p>
+        <p><strong>Interests:</strong> <span id="displayInterests"></span></p>
+        <button id="editProfileBtn">Edit Profile</button>
+    </div>
+    </div>
+
+
+      <form id="profileForm" class="hidden">
+        <label>Name:</label>
+        <input type="text" id="name" required />
+        <label>Career:</label>
+        <input type="text" id="career" />
+        <label>Interests:</label>
+        <input type="text" id="interests" />
+        <label>Bio:</label>
+        <textarea id="bio"></textarea>
+        <button type="submit">Save Profile</button>
+        <button type="button" id="cancelEdit">Cancel</button>
+      </form>
+
+      <div id="connectionsSection">
+        <h3>Your Connections:</h3>
+        <div id="myConnections" class="connection-grid"></div>
+      </div>
+    </section>
+
+    <!-- network section -->
+    <section id="network" class="tab">
+      <h2>Network</h2>
+      <div id="networkList"></div>
+      <div id="toast" class="toast hidden">Connected!</div>
+    </section>
+
+    <!-- posts section -->
+    <section id="posts" class="tab">
+      <h2>Posts</h2>
+      <form id="postForm">
+        <textarea id="postContent" placeholder="Write something..." required></textarea>
+        <button type="submit">Add Post</button>
+      </form>
+      <ul id="postList"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
