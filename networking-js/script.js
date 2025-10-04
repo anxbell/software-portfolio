@@ -56,8 +56,8 @@ function showProfile() {
     profileForm.style.display = "none";
     connectionsSection.style.display = "block";
 
-    showConnections();
-
+    myConnections.innerHTML = "";
+    showConnectionsRecursive();
 
 
   } catch (err) {
@@ -167,6 +167,26 @@ function showConnections() {
   });
 }
 
+//showing connections recursively to fulfill the requirement of using recursion with logic 
+function showConnectionsRecursive(index = 0, connections = JSON.parse(localStorage.getItem("connections")) || []) {
+  // stop when we've displayed all connections
+  if (index >= connections.length) return;
+
+  const c = connections[index];
+  const card = document.createElement("div");
+  card.className = "small-card";
+  card.innerHTML = `
+    <h4>${c.name}</h4>
+    <p>${c.field}</p>
+    <button class="removeBtn">Remove</button>
+  `;
+  card.querySelector(".removeBtn").addEventListener("click", () => removeConnection(c.name));
+  myConnections.appendChild(card);
+
+  // recursive call for the next connection
+  showConnectionsRecursive(index + 1, connections);
+}
+
 
 //remove connection from profile
 function removeConnection(name) {
@@ -213,7 +233,7 @@ postForm.addEventListener("submit", e => {
     id: Date.now(),
     author: profile.name,
     text,
-    date: new Date().toLocaleString()
+    date: dayjs().format("YYYY-MM-DD HH:mm:ss")
   });
   localStorage.setItem("posts", JSON.stringify(posts));
   document.getElementById("postContent").value = "";
@@ -238,7 +258,8 @@ function showPosts() {
   posts.forEach(p => {
     const li = document.createElement("li");
     li.innerHTML = `
-      <strong>${p.author}</strong> <em>${p.date}</em>
+      <strong>${p.author}</strong> 
+      <em>${dayjs(p.date).format("MMM D, YYYY h:mm A")}</em>
       <br>${p.text}
     `;
 
